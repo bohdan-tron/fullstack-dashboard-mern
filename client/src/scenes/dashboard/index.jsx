@@ -15,7 +15,7 @@ const Dashboard = () => {
   const { data, isLoading } = useGetDashboardStatsQuery();
 
   if (!data || isLoading) {
-    return "Loading...";
+    return <Box m="1.5rem 2.5rem"><Header title="Loading..." subtitle="Give the free server 10-180 seconds to turn on, it will be up soon" /></Box>;
   }
 
   let yearlySalesTotal = 0;

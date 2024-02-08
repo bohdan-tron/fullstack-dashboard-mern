@@ -127,12 +127,12 @@ const Sidebar = ({
             },
           }}
         >
-          <Box width="100%">
+          <Box width="100%" mb="90px" sx={{overflowX: "hidden"}}>
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold">
-                    ECOKYIV
+                  <Typography variant="h4" fontWeight="bold" textTransform="uppercase">
+                    Sidebar
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -193,9 +193,9 @@ const Sidebar = ({
             </List>
           </Box>
 
-          <Box position="absolute" bottom="2rem">
+          <Box position="absolute" bottom="0" backgroundColor={theme.palette.background.alt}>
             <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 1.8rem 1.5rem 3rem">
               <Box
                 component="img"
                 alt="profile"
@@ -221,7 +221,7 @@ const Sidebar = ({
                 </Typography>
               </Box>
               <SettingsOutlined
-                sx={{ color: theme.palette.secondary[300], fintSize: "25px" }}
+                sx={{ color: "grey", fintSize: "25px" }}
               />
             </FlexBetween>
           </Box>

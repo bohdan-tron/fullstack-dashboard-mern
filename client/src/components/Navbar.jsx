@@ -22,11 +22,13 @@ import {
   Typography,
   Button,
   Menu,
+  useMediaQuery,
 } from "@mui/material";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const isNonMediumScreen = useMediaQuery("(max-width: 940px)");
 
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
@@ -43,8 +45,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
     >
       <Toolbar sx={{
         justifyContent: "space-between", 
-        position: "fixed", 
-        width: "-webkit-fill-available",
+        position: "fixed",
         backdropFilter: "blur(6px)",
         zIndex: "2",
       }}>
@@ -60,9 +61,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             gap="3rem"
             p="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Search..." />
+            <InputBase disabled placeholder="Search..." />
             <IconButton>
-              <Search />
+              <Search sx={{color: "grey"}} />
             </IconButton>
           </FlexBetween>
         </FlexBetween>
@@ -77,7 +78,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             )}
           </IconButton>
           <IconButton>
-            <SettingsOutlined sx={{ fontSize: "25px" }} />
+            <SettingsOutlined sx={{ color: "grey", fontSize: "25px" }} />
           </IconButton>
 
           <FlexBetween>
@@ -100,7 +101,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
-              <Box textAlign="left">
+              <Box textAlign="left" display={isNonMediumScreen ? "none" : "block"}>
                 <Typography
                   fontWeight="bold"
                   fontSize="0.85rem"
